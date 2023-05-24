@@ -95,6 +95,23 @@ const listarTweetHTML = () => {
       const tweetHtml = document.createElement('LI');
       tweetHtml.textContent = tweet;
 
+
+      // Creasmos un boton para eliminar
+      const btnEliminar = document.createElement('A');
+      btnEliminar.classList.add('borrar-tweet');
+      btnEliminar.textContent = 'X';
+
+      // Añadimos la funcion de eliminar tweet
+      btnEliminar.onclick = () => {
+        // Obtenemos la nueva lista de tweets
+        listaWttets = eliminarTweet(id);
+        // Listamos la nueva lista
+        listarTweetHTML();
+        sincronizarStorage();
+      }
+
+      tweetHtml.appendChild(btnEliminar);
+
       // Agremos el tweet al contenedor
       contenedorTweets.appendChild(tweetHtml);
     });
@@ -116,3 +133,8 @@ const limpiarHtml = () => {
 const sincronizarStorage = () => {
   localStorage.setItem('tweets', JSON.stringify(listaWttets));
 };
+
+
+
+// * Elimina un tweet
+const eliminarTweet = (id) => listaWttets.filter(tweet => tweet.id !== id);

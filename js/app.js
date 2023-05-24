@@ -7,6 +7,8 @@ let listaWttets = [];
 // * EVENTOS
 document.addEventListener('DOMContentLoaded', () => {
   formulario.addEventListener('submit', agregarTweet);
+  listaWttets = JSON.parse(localStorage.getItem('tweets')) || [];
+  listarTweetHTML();
 });
 
 

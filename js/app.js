@@ -36,6 +36,7 @@ const agregarTweet = (event) => {
   // Agregamos el tweet a la lisat de tweets
   listaWttets = [...listaWttets, objTweet];
 
+  listarTweetHTML();
 };
 
 
@@ -66,4 +67,24 @@ const eliminarError = () => {
   if (existeError) {
     existeError.remove();
   }
+};
+
+
+
+// * Muestra la lisat de tweets
+const listarTweetHTML = () => {
+  // Si la lista contiene al menos un elemento lo listamos
+  if (listaWttets.length > 0) {
+
+    listaWttets.forEach(tweetObj => {
+      const { id, tweet } = tweetObj;
+
+      // Creamos el html del tweet
+      const tweetHtml = document.createElement('P');
+      tweetHtml.textContent = tweet;
+
+      // Agremos el tweet al contenedor
+      contenedorTweets.appendChild(tweetHtml);
+    });
+  };
 };

@@ -73,6 +73,9 @@ const eliminarError = () => {
 
 // * Muestra la lisat de tweets
 const listarTweetHTML = () => {
+  // limpiamos el html previo
+  limpiarHtml();
+
   // Si la lista contiene al menos un elemento lo listamos
   if (listaWttets.length > 0) {
 
@@ -80,11 +83,20 @@ const listarTweetHTML = () => {
       const { id, tweet } = tweetObj;
 
       // Creamos el html del tweet
-      const tweetHtml = document.createElement('P');
+      const tweetHtml = document.createElement('LI');
       tweetHtml.textContent = tweet;
 
       // Agremos el tweet al contenedor
       contenedorTweets.appendChild(tweetHtml);
     });
+  };
+};
+
+
+
+// * Limpia el htmml
+const limpiarHtml = () => {
+  while (contenedorTweets.firstChild) {
+    contenedorTweets.firstChild.remove();
   };
 };

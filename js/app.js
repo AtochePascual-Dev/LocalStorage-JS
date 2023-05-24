@@ -80,7 +80,7 @@ const eliminarError = () => {
 
 
 
-// * Muestra la lisat de tweets
+// * Muestra la lista de tweets
 const listarTweetHTML = () => {
   // limpiamos el html previo
   limpiarHtml();

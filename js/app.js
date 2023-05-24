@@ -23,6 +23,9 @@ const agregarTweet = (event) => {
     mostrarAlerta();
     return;
   }
+
+  // Si pasa la validacion eliminamos la alerta de error
+  eliminarError();
 };
 
 
@@ -30,7 +33,7 @@ const agregarTweet = (event) => {
 // * Muestra un mensaje de alerta
 const mostrarAlerta = () => {
 
-  // verificamos si no existe un mensaje de error previo
+  // verificamos si existe un mensaje de error previo
   const existeError = document.querySelector('.error');
 
   if (!existeError) {
@@ -40,5 +43,17 @@ const mostrarAlerta = () => {
 
     // agrega el mensaje al html
     formulario.appendChild(error);
+  }
+};
+
+
+
+// * Elimina el error en caso de exisitr
+const eliminarError = () => {
+  // verificamos si existe un mensaje de error previo
+  const existeError = document.querySelector('.error');
+
+  if (existeError) {
+    existeError.remove();
   }
 };

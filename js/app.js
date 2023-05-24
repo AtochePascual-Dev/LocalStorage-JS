@@ -26,6 +26,16 @@ const agregarTweet = (event) => {
 
   // Si pasa la validacion eliminamos la alerta de error
   eliminarError();
+
+  // Creamos el tweet
+  const objTweet = {
+    id: Date.now(),
+    tweet
+  }
+
+  // Agregamos el tweet a la lisat de tweets
+  listaWttets = [...listaWttets, objTweet];
+
 };
 
 

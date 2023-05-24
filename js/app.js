@@ -36,7 +36,14 @@ const agregarTweet = (event) => {
   // Agregamos el tweet a la lisat de tweets
   listaWttets = [...listaWttets, objTweet];
 
+  // Listamos los tweets
   listarTweetHTML();
+
+  // Reseteamos el formulario
+  formulario.reset();
+
+  // Sincrinizamos con el local Storage
+  sincronizarStorage();
 };
 
 
@@ -99,4 +106,11 @@ const limpiarHtml = () => {
   while (contenedorTweets.firstChild) {
     contenedorTweets.firstChild.remove();
   };
+};
+
+
+
+// * Sincroniza con el local storage
+const sincronizarStorage = () => {
+  localStorage.setItem('tweets', JSON.stringify(listaWttets));
 };
